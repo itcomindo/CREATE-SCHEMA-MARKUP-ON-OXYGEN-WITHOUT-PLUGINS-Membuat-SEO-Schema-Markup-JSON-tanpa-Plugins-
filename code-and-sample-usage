@@ -1,0 +1,54 @@
+<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> 
+
+<div itemscope itemtype="https://schema.org/EmploymentAgency">
+	<div itemprop="name">Insert_With_Post_Title_or_Field_represent_Your Business
+<meta itemprop="description" content="Insert_with_whatever_you_want" />
+</div>
+<div>Email: <span itemprop="email">Insert_with_default_email_or_from_ACF</span></div>
+  <meta itemprop="image" content="<?php echo $url ?>" />
+	<div>Phone: <span itemprop="telephone">Insert_with_Default_Phone_number_or_whatever_you_want_from_acf</span></div>
+	<div>Url: <span itemprop="url">Insert_with_Post_URL</span></div>
+
+	<meta itemprop="openingHours"  style='display: none'  datetime="Mo,Tu,We,Th,Fr 08:00-18:00" />
+	<meta itemprop="priceRange" content="Insert_with_default_price_or_ACF" />
+
+	<div itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+		<div itemprop="streetAddress">Insert_With_ACF</div>
+		<div><span itemprop="addressLocality">Insert_With_ACF</span>, <span itemprop="addressRegion">Insert_With_ACF</span> <span itemprop="postalCode">Insert_With_ACF</span></div>
+	</div>
+</div>
+
+
+/* USAGE SAMPLE */
+
+<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID), 'thumbnail' ); ?> 
+
+<div itemscope itemtype="https://schema.org/EmploymentAgency">
+	<div itemprop="name"><?php the_title(); ?>
+<meta itemprop="description" content="<?php the_title(); ?> baca disimak di situs resmi kami bosss!" />
+</div>
+<div>Email: <span itemprop="email">emailku@contoh.top</span></div>
+  <meta itemprop="image" content="<?php echo $url ?>" />
+	<div>Phone: <span itemprop="telephone">0822 3356 3320</span></div>
+	<div>Url: <span itemprop="url"><?php the_permalink(); ?></span></div>
+
+	<meta itemprop="openingHours"  style='display: none'  datetime="Mo,Tu,We,Th,Fr 08:00-18:00" />
+	<meta itemprop="priceRange" content="500.000 - 2000.000" />
+
+	<div itemtype="http://schema.org/PostalAddress" itemscope="" itemprop="address">
+		<div itemprop="streetAddress"><?php the_field('streetaddress'); ?></div>
+		<div><span itemprop="addressLocality"><?php the_field('addresslocality'); ?></span>, <span itemprop="addressRegion"><?php the_field('addressregion'); ?></span> <span itemprop="postalCode"><?php the_field('postalcode'); ?></span></div>
+	</div>
+</div>
+
+
+/* JSON LOGO SCHEMA MARKUP  */
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "https://contoh.top/",
+      "logo": "/wp-content/uploads/2021/04/Screenshot_13.jpg"
+    }
+    </script>
